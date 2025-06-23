@@ -9,12 +9,14 @@ export const encryptMessage = (text) => {
 export const decryptMessage = (cipherText) => {
   try {
     const bytes = CryptoJS.AES.decrypt(cipherText, SECRET_KEY);
-    return bytes.toString(CryptoJS.enc.Utf8);
+    const originalText = bytes.toString(CryptoJS.enc.Utf8);
+    return originalText || "[Decryption failed]";
   } catch (err) {
     console.error("Decryption error:", err);
-    return "[Cannot decrypt]";
+    return "[Decryption error]";
   }
 };
+
 
 export function formatMessageTime(date) {
   return new Date(date).toLocaleTimeString("en-US", {
