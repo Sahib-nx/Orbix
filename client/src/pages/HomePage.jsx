@@ -392,15 +392,15 @@ const HomePage = () => {
                 </div>
 
                 {/* ChatContainer - Conditional rendering with proper height constraint */}
-{selectedUser ? (
-    <div className="h-full overflow-y-auto">
-        <ChatContainer 
-            isMobile={isMobile}
-            onShowRightSidebar={handleShowRightSidebar}
-            onBackToSidebar={handleBackToSidebar}
-        />
-    </div>
-) : (
+                {selectedUser ? (
+                    <div className="h-full overflow-hidden">
+                        <ChatContainer 
+                            isMobile={isMobile}
+                            onShowRightSidebar={handleShowRightSidebar}
+                            onBackToSidebar={handleBackToSidebar}
+                        />
+                    </div>
+                ) : (
                     <div className='flex flex-col items-center justify-center h-full text-gray-500 max-md:hidden relative overflow-hidden'
                         style={{
                             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(255, 255, 255, 0.02) 100%)',
